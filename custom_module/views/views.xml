@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="id_form_unique" model="ir.ui.view">
+           <field name="name">id.form.unique</field>
+           <field name="model">custom.module</field>
+           <field name="arch" type="xml">
+               <form string="Custom Module Form">
+                   <sheet>
+                       <div class="oe_title">
+                           <label for="name" class="oe_edit_only"/>
+                           <h1>
+                               <field name="name" placeholder="Custom Module Placeholder"/>
+                           </h1>
+                       </div>
+                       <group>
+                           <field name="partner_id"/>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+
+      <record id="id_tree_unique" model="ir.ui.view">
+          <field name="name">id.tree.unique</field>
+          <field name="model">custom.module</field>
+          <field name="arch" type="xml">
+              <tree string="Custom Module Tree">
+                  <field name="name"/>
+                  <field name="partner_id"/>
+              </tree>
+          </field>
+      </record>
+
+      <record id="id_custom_module_action" model="ir.actions.act_window">
+          <field name="name">Custom Module</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">custom.module</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+              Help!
+            </p><p>
+              More details
+            </p>
+          </field>
+      </record>
+
+      <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+      <menuitem id="menu_root_id_unique" name="Custom Model" sequence="1"/>
+
+      <!-- This Menu Item must have a parent and an action -->
+      <menuitem id="menu_id_unique" name="Custom Module" parent="menu_root_id_unique" action="id_custom_module_action" sequence="1"/>
+
+    </data>
+</odoo>
